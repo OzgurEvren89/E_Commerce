@@ -1,0 +1,59 @@
+﻿
+@model UpdatePaymentGatewayViewModel
+
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">Ödeme Kanalı Güncelle</h3>
+    </div>
+    <!-- /.card-header -->
+    <!-- form start -->
+    <form form asp-controller="PaymentGateway" asp-action="Update" method="post">
+        <input type="hidden" asp-for="Id" />
+        <div class="card-body">
+            <div class="form-group">
+                <label>Ödeme Kanalı Kodu</label>
+                <input asp-for="Code" class="form-control" type="text" placeholder="Code *">
+            </div>
+            <div class="form-group">
+                <label>Ödeme Kanalı Adı</label>
+                <input asp-for="Name" class="form-control" type="text" placeholder="Name *">
+            </div>
+            <div class="form-group">
+                <label>Ödeme Kanalı Sırası</label>
+                <input asp-for="SortOrder" class="form-control" type="text" placeholder="SortOrder *">
+            </div>
+        </div>
+        <!-- /.card-body -->
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <a asp-controller="PaymentGateway" asp-action="Index" class="btn btn-danger">Çıkış</a>
+        </div>
+    </form>
+
+    @if (TempData["Message"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            @TempData["Message"]
+        </div>
+    }
+</div>
+
+
+
+@section scripts{
+    <!-- bs-custom-file-input -->
+    <script src="~/admin/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+
+    <script>
+        $(function () {
+            bsCustomFileInput.init();
+        });
+    </script>
+}
+
+

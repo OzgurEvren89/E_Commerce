@@ -1,0 +1,23 @@
+﻿#smallImage {
+    width: 100px;
+    height: 100px;
+    margin-right: 15px;
+    border: 1px solid #800000;
+    border-radius: 15px;
+    box-shadow: 10px 10px 6px -1px rgba(0,0,0,0.72);
+    -webkit-box-shadow: 10px 10px 6px -1px rgba(0,0,0,0.72);
+    -moz-box-shadow: 10px 10px 6px -1px rgba(0,0,0,0.72);
+    transition: 300ms ease-out;
+}
+
+#bigImage {
+    width: 800px;
+    height: 800px;
+    margin-right: 15px;
+    border: 1px solid #800000;
+    border-radius: 15px;
+    box-shadow: 10px 10px 6px -1px rgba(0,0,0,0.72);
+    -webkit-box-shadow: 10px 10px 6px -1px rgba(0,0,0,0.72);
+    -moz-box-shadow: 10px 10px 6px -1px rgba(0,0,0,0.72);
+    transition: 300ms ease-out;
+}

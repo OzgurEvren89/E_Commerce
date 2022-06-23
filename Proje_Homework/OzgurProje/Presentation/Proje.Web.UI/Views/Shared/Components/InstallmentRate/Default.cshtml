@@ -1,0 +1,83 @@
+﻿@model Tuple<ProductViewModel, List<PaymentGatewayViewModel>>
+
+
+
+<div class="content-body">
+    <div class="row justify-content-between align-items-center mb-10">
+        <div class="col-12 col-lg-auto mb-20">
+            <div class="page-heading">
+                <h3 class="title">TAKSİT SEÇENEKLERİ</h3>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 mb-30">
+            <div class="box">
+                <div class="box-head">
+                    @if (Model != null && Model.Item1 != null && Model.Item1.Id != null)
+                    {
+                        <a asp-controller="ProductDetail" asp-action="ProductDetails" asp-route-id="@Model.Item1.Id" class="btn btn-danger">ÜRÜNE GERİ DÖN</a>
+                    }
+                    else
+                    {
+                        <a asp-controller="Home" asp-action="Index" class="btn btn-danger"> GERİ DÖN</a>
+                    }
+                </div>
+                <br />
+                <div class="box-body">
+                    <table class="table table-bordered data-table data-table-default">
+                        <thead>
+                            <tr>
+                                <th>Peşin Fiyatı</th>
+                                <th>Taksit Sayısı</th>
+                                <th>Vadeli Fiyatı Fiyatı</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model != null && Model.Item2 != null)
+                            {
+                                foreach (var item in Model.Item2)
+                                {
+                                    <tr><th colspan="3" style="color: orange; text-align: center">@item.Name</th></tr>
+
+                                    foreach (var installmentRate in item.InstallmentRates.OrderBy(x=>x.Installment))
+                                    {
+                                        decimal value = Model.Item1 != null && Model.Item1.Price1 != null && Model.Item1.Price1 != null && installmentRate != null ? Model.Item1.Price1 * installmentRate.Rate : 0;
+
+                                        decimal value1 = Model.Item1 != null && Model.Item1.Price1 != null && Model.Item1.Price1 != null ? Model.Item1.Price1 : 0;
+                                        <tr>
+                                            @if (@Model.Item1.Price1 != null)
+                                            {
+
+                                                <td>
+                                                    @value1 TL
+                                                </td>
+                                            }
+
+                                            <td>
+                                                @installmentRate.Installment
+                                            </td>
+                                            @if (@Model.Item1.Price1 != null)
+                                            {
+                                                <td>
+                                                    @value TL
+                                                </td>
+                                            }
+                                        </tr>
+                                    }
+                                }
+
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<br />
+
+
+

@@ -1,0 +1,18 @@
+C:\Users\Samsung\Desktop\BilgeAdam\Proje_Homework\OzgurProje\Common\Proje.Common\bin\Debug\netcoreapp3.1\Proje.Common.deps.json
+C:\Users\Samsung\Desktop\BilgeAdam\Proje_Homework\OzgurProje\Common\Proje.Common\bin\Debug\netcoreapp3.1\Proje.Common.dll
+C:\Users\Samsung\Desktop\BilgeAdam\Proje_Homework\OzgurProje\Common\Proje.Common\bin\Debug\netcoreapp3.1\Proje.Common.pdb
+C:\Users\Samsung\Desktop\BilgeAdam\Proje_Homework\OzgurProje\Common\Proje.Common\obj\Debug\netcoreapp3.1\Proje.Common.csproj.AssemblyReference.cache
+C:\Users\Samsung\Desktop\BilgeAdam\Proje_Homework\OzgurProje\Common\Proje.Common\obj\Debug\netcoreapp3.1\Proje.Common.AssemblyInfoInputs.cache
+C:\Users\Samsung\Desktop\BilgeAdam\Proje_Homework\OzgurProje\Common\Proje.Common\obj\Debug\netcoreapp3.1\Proje.Common.AssemblyInfo.cs
+C:\Users\Samsung\Desktop\BilgeAdam\Proje_Homework\OzgurProje\Common\Proje.Common\obj\Debug\netcoreapp3.1\Proje.Common.csproj.CoreCompileInputs.cache
+C:\Users\Samsung\Desktop\BilgeAdam\Proje_Homework\OzgurProje\Common\Proje.Common\obj\Debug\netcoreapp3.1\Proje.Common.dll
+C:\Users\Samsung\Desktop\BilgeAdam\Proje_Homework\OzgurProje\Common\Proje.Common\obj\Debug\netcoreapp3.1\Proje.Common.pdb
+C:\Users\Samsung\Desktop\Proje imaj\Proje_Homework\OzgurProje\Common\Proje.Common\bin\Debug\netcoreapp3.1\Proje.Common.deps.json
+C:\Users\Samsung\Desktop\Proje imaj\Proje_Homework\OzgurProje\Common\Proje.Common\bin\Debug\netcoreapp3.1\Proje.Common.dll
+C:\Users\Samsung\Desktop\Proje imaj\Proje_Homework\OzgurProje\Common\Proje.Common\bin\Debug\netcoreapp3.1\Proje.Common.pdb
+C:\Users\Samsung\Desktop\Proje imaj\Proje_Homework\OzgurProje\Common\Proje.Common\obj\Debug\netcoreapp3.1\Proje.Common.csproj.AssemblyReference.cache
+C:\Users\Samsung\Desktop\Proje imaj\Proje_Homework\OzgurProje\Common\Proje.Common\obj\Debug\netcoreapp3.1\Proje.Common.AssemblyInfoInputs.cache
+C:\Users\Samsung\Desktop\Proje imaj\Proje_Homework\OzgurProje\Common\Proje.Common\obj\Debug\netcoreapp3.1\Proje.Common.AssemblyInfo.cs
+C:\Users\Samsung\Desktop\Proje imaj\Proje_Homework\OzgurProje\Common\Proje.Common\obj\Debug\netcoreapp3.1\Proje.Common.csproj.CoreCompileInputs.cache
+C:\Users\Samsung\Desktop\Proje imaj\Proje_Homework\OzgurProje\Common\Proje.Common\obj\Debug\netcoreapp3.1\Proje.Common.dll
+C:\Users\Samsung\Desktop\Proje imaj\Proje_Homework\OzgurProje\Common\Proje.Common\obj\Debug\netcoreapp3.1\Proje.Common.pdb

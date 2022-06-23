@@ -1,0 +1,89 @@
+﻿@model ProductImageViewModel
+
+
+@{
+    ViewData["Category Details"] = "GetById";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-body">
+    <div class="row justify-content-between align-items-center mb-10">
+        <div class="col-12 col-lg-auto mb-20">
+            <div class="page-heading">
+                <h3 class="title">Blog<span>/ Product Image</span></h3>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 mb-30">
+            <div class="box">
+                <div class="box-head">
+                    <a asp-controller="ProductImage" asp-action="Index" class="btn btn-primary">Çıkış</a>
+                </div>
+                <img src="@Model.FileName" alt="">
+                <div class="box-body">
+                    <table class="table table-bordered data-table data-table-default">
+                        <thead>
+                            <tr>
+                                <th>Table row</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    Id
+                                </td>
+                                <td>
+                                    @Model.Id
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Resmin Düzenlenmiş Adı
+                                </td>
+                                <td>
+                                    @Model.Revision
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Dosya Adı
+                                </td>
+                                <td>
+                                    @Model.FileName
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Ürün Id'si'
+                                </td>
+                                <td>
+                                    @Model.ProductId
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Resim Sırası
+                                </td>
+                                <td>
+                                    @Model.SortOrder
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Created Date
+                                </td>
+                                <td>
+                                    @Model.CreatedDate
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

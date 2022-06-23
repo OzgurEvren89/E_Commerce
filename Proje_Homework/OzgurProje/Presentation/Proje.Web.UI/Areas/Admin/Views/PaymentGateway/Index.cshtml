@@ -1,0 +1,110 @@
+﻿@model List<PaymentGatewayViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<!-- /.card -->
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <!-- /.card -->
+
+                <div class="card">
+
+                    <div class="card-header">
+                        <h3 class="card-title">PaymentGateways</h3>
+                    </div>
+                    <div class="box-head">
+                        <a asp-controller="PaymentGateway" asp-action="Insert" class="btn btn-primary">Yeni Kayıt</a>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <table id="example1" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>PaymentGateway Code</th>
+                                    <th>PaymentGateway Name</th>
+                                    <th>PaymentGateway SortOrder</th>
+                                    <th>Status</th>
+                                    <th>Change Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (PaymentGatewayViewModel item in Model)
+                                {
+                                    <tr class="odd">
+                                        <td>@item.Code</td>
+                                        <td>@item.Name</td>
+                                        <td>@item.SortOrder</td>
+                                        <td><partial name="PartialViews/_StatusPartial" model="item.Status" /></td>
+                                        <td>
+                                            <a asp-controller="PaymentGateway" asp-action="Activate" asp-route-id="@item.Id" class="btn">Activate</a>
+                                            <a asp-controller="PaymentGateway" asp-action="Update" asp-route-id="@item.Id" class="btn">Update</a>
+                                            <a asp-controller="PaymentGateway" asp-action="Delete" asp-route-id="@item.Id" class="btn">Delete</a>
+                                        </td>
+
+                                    </tr>
+                                }
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>PaymentGateway Code</th>
+                                    <th>PaymentGateway Name</th>
+                                    <th>PaymentGateway SortOrder</th>
+                                    <th>Status</th>
+                                    <th>Change Status</th>
+
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+</section>
+
+
+
+@section scripts{
+    DataTables  & Plugins
+    <script src="~/admin/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/admin/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/admin/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="~/admin/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="~/admin/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+    <script src="~/admin/plugins/jszip/jszip.min.js"></script>
+    <script src="~/admin/plugins/pdfmake/pdfmake.min.js"></script>
+    <script src="~/admin/plugins/pdfmake/vfs_fonts.js"></script>
+    <script src="~/admin/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+    <script src="~/admin/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+    <script src="~/admin/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+
+
+    <script>
+
+        $(function () {
+            $("#example1").DataTable({
+                "responsive": true, "lengthChange": false, "autoWidth": false,
+                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+
+        });
+
+    </script>
+}
+
+
+
+

@@ -1,0 +1,104 @@
+﻿
+@model UpdateProductViewModel
+
+
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">Kategori ve Marka Bağı Ekle</h3>
+    </div>
+    <!-- /.card-header -->
+    <!-- form start -->
+    <form asp-controller="Product" asp-action="Update" method="post">
+        <input type="hidden" asp-for="Id" />
+        <div class="card-body">
+            <div class="form-group">
+                <label>Ürün Adı</label>
+                <input asp-for="ProductName" class="form-control" type="text" placeholder="Product Name *">
+            </div>
+            <div class="form-group">
+                <label>Alış Fiyatı</label>
+                <input asp-for="BuyingPrice" class="form-control" type="number" placeholder="Buying Price *">
+            </div>
+            <div class="form-group">
+                <label>Önerilen Fiyatı</label>
+                <input asp-for="Price1" class="form-control" type="number" placeholder="Firs Price *">
+            </div>
+            <div class="form-group">
+                <label>Garanti Süresi(Yıl Olarak)</label>
+                <input asp-for="Warranty" class="form-control" type="number" placeholder="Warranty *">
+            </div>
+
+            <div class="form-group">
+                <label>Stok Miktarı</label>
+                <input asp-for="StockAmount" class="form-control" type="number" placeholder="StockAmount *">
+            </div>
+
+            <div class="form-group">
+                <label>Distribütör</label>
+                <input asp-for="Distributor" class="form-control" type="text" placeholder="Distributor *">
+            </div>
+            <div class="form-group">
+                <label>Hediye</label>
+                <input asp-for="Gift" class="form-control" type="text" placeholder="Gift *">
+            </div>
+            <div class="form-group">
+                <label>Kısa Açıklama</label>
+                <input asp-for="ShortDetails" class="form-control" type="text" placeholder="ShortDetails *">
+            </div>
+            <div class="form-group">
+                <label>Marka Id</label>
+                <input asp-for="BrandId" class="form-control" type="text" placeholder="BrandId *">
+            </div>
+            <div class="form-group">
+                <label>Kategori Id</label>
+                <input asp-for="CategoryId" class="form-control" type="text" placeholder="CategoryId *">
+            </div>
+            <div class="form-group">
+                <label>Kategori Id</label>
+                <input asp-for="VolumetricWeight" class="form-control" type="text" placeholder="CategoryId *">
+            </div>
+        </div>
+
+
+        <!-- /.card-body -->
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <a asp-controller="Product" asp-action="Index" class="btn btn-danger">Çıkış</a>
+        </div>
+    </form>
+
+    @if (TempData["Message"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            @TempData["Message"]
+        </div>
+    }
+</div>
+
+
+
+@section scripts{
+    <!-- bs-custom-file-input -->
+    <script src="~/admin/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+
+    <script>
+        $(function () {
+            bsCustomFileInput.init();
+        });
+    </script>
+}
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,32 @@
+C:\Users\Samsung\Desktop\BilgeAdam\Proje_Homework\OzgurProje\Library\Proje.Service\bin\Debug\netcoreapp3.1\Proje.Service.deps.json
+C:\Users\Samsung\Desktop\BilgeAdam\Proje_Homework\OzgurProje\Library\Proje.Service\bin\Debug\netcoreapp3.1\Proje.Service.dll
+C:\Users\Samsung\Desktop\BilgeAdam\Proje_Homework\OzgurProje\Library\Proje.Service\bin\Debug\netcoreapp3.1\Proje.Service.pdb
+C:\Users\Samsung\Desktop\BilgeAdam\Proje_Homework\OzgurProje\Library\Proje.Service\bin\Debug\netcoreapp3.1\Proje.Common.dll
+C:\Users\Samsung\Desktop\BilgeAdam\Proje_Homework\OzgurProje\Library\Proje.Service\bin\Debug\netcoreapp3.1\Proje.Core.dll
+C:\Users\Samsung\Desktop\BilgeAdam\Proje_Homework\OzgurProje\Library\Proje.Service\bin\Debug\netcoreapp3.1\Proje.Model.dll
+C:\Users\Samsung\Desktop\BilgeAdam\Proje_Homework\OzgurProje\Library\Proje.Service\bin\Debug\netcoreapp3.1\Proje.Core.pdb
+C:\Users\Samsung\Desktop\BilgeAdam\Proje_Homework\OzgurProje\Library\Proje.Service\bin\Debug\netcoreapp3.1\Proje.Model.pdb
+C:\Users\Samsung\Desktop\BilgeAdam\Proje_Homework\OzgurProje\Library\Proje.Service\bin\Debug\netcoreapp3.1\Proje.Common.pdb
+C:\Users\Samsung\Desktop\BilgeAdam\Proje_Homework\OzgurProje\Library\Proje.Service\obj\Debug\netcoreapp3.1\Proje.Service.csproj.AssemblyReference.cache
+C:\Users\Samsung\Desktop\BilgeAdam\Proje_Homework\OzgurProje\Library\Proje.Service\obj\Debug\netcoreapp3.1\Proje.Service.AssemblyInfoInputs.cache
+C:\Users\Samsung\Desktop\BilgeAdam\Proje_Homework\OzgurProje\Library\Proje.Service\obj\Debug\netcoreapp3.1\Proje.Service.AssemblyInfo.cs
+C:\Users\Samsung\Desktop\BilgeAdam\Proje_Homework\OzgurProje\Library\Proje.Service\obj\Debug\netcoreapp3.1\Proje.Service.csproj.CoreCompileInputs.cache
+C:\Users\Samsung\Desktop\BilgeAdam\Proje_Homework\OzgurProje\Library\Proje.Service\obj\Debug\netcoreapp3.1\Proje.Service.csproj.CopyComplete
+C:\Users\Samsung\Desktop\BilgeAdam\Proje_Homework\OzgurProje\Library\Proje.Service\obj\Debug\netcoreapp3.1\Proje.Service.dll
+C:\Users\Samsung\Desktop\BilgeAdam\Proje_Homework\OzgurProje\Library\Proje.Service\obj\Debug\netcoreapp3.1\Proje.Service.pdb
+C:\Users\Samsung\Desktop\Proje imaj\Proje_Homework\OzgurProje\Library\Proje.Service\bin\Debug\netcoreapp3.1\Proje.Service.deps.json
+C:\Users\Samsung\Desktop\Proje imaj\Proje_Homework\OzgurProje\Library\Proje.Service\bin\Debug\netcoreapp3.1\Proje.Service.dll
+C:\Users\Samsung\Desktop\Proje imaj\Proje_Homework\OzgurProje\Library\Proje.Service\bin\Debug\netcoreapp3.1\Proje.Service.pdb
+C:\Users\Samsung\Desktop\Proje imaj\Proje_Homework\OzgurProje\Library\Proje.Service\bin\Debug\netcoreapp3.1\Proje.Common.dll
+C:\Users\Samsung\Desktop\Proje imaj\Proje_Homework\OzgurProje\Library\Proje.Service\bin\Debug\netcoreapp3.1\Proje.Core.dll
+C:\Users\Samsung\Desktop\Proje imaj\Proje_Homework\OzgurProje\Library\Proje.Service\bin\Debug\netcoreapp3.1\Proje.Model.dll
+C:\Users\Samsung\Desktop\Proje imaj\Proje_Homework\OzgurProje\Library\Proje.Service\bin\Debug\netcoreapp3.1\Proje.Core.pdb
+C:\Users\Samsung\Desktop\Proje imaj\Proje_Homework\OzgurProje\Library\Proje.Service\bin\Debug\netcoreapp3.1\Proje.Model.pdb
+C:\Users\Samsung\Desktop\Proje imaj\Proje_Homework\OzgurProje\Library\Proje.Service\bin\Debug\netcoreapp3.1\Proje.Common.pdb
+C:\Users\Samsung\Desktop\Proje imaj\Proje_Homework\OzgurProje\Library\Proje.Service\obj\Debug\netcoreapp3.1\Proje.Service.csproj.AssemblyReference.cache
+C:\Users\Samsung\Desktop\Proje imaj\Proje_Homework\OzgurProje\Library\Proje.Service\obj\Debug\netcoreapp3.1\Proje.Service.AssemblyInfoInputs.cache
+C:\Users\Samsung\Desktop\Proje imaj\Proje_Homework\OzgurProje\Library\Proje.Service\obj\Debug\netcoreapp3.1\Proje.Service.AssemblyInfo.cs
+C:\Users\Samsung\Desktop\Proje imaj\Proje_Homework\OzgurProje\Library\Proje.Service\obj\Debug\netcoreapp3.1\Proje.Service.csproj.CoreCompileInputs.cache
+C:\Users\Samsung\Desktop\Proje imaj\Proje_Homework\OzgurProje\Library\Proje.Service\obj\Debug\netcoreapp3.1\Proje.Service.csproj.CopyComplete
+C:\Users\Samsung\Desktop\Proje imaj\Proje_Homework\OzgurProje\Library\Proje.Service\obj\Debug\netcoreapp3.1\Proje.Service.dll
+C:\Users\Samsung\Desktop\Proje imaj\Proje_Homework\OzgurProje\Library\Proje.Service\obj\Debug\netcoreapp3.1\Proje.Service.pdb

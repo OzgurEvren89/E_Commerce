@@ -1,0 +1,34 @@
+﻿@model CreateOrderRefundDemandViewModel
+
+
+<form id="frmOrder" asp-action="InsertOrderRefundDemand" asp-controller="Profile" method="post" data-ajax="true" data-ajax-method="Post" data-ajax-success="OnSuccess" novalidate="novalidate">
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <label>İptal Nedeni</label>
+        <select asp-for="Reason" asp-items="@ViewBag.DemandReason" class="form-control">
+            <option>İptal Nedenini Seçiniz..</option>
+        </select>
+    </div>
+    <div>
+        <label>Detaylı açıklama giriniz</label>
+        <input asp-for="Details" class="form-control" type="text" placeholder="İptal açıklaması *">
+    </div>
+    @{
+        if (ViewData["order"] != null)
+        {
+            OrderViewModel orderViewModel = ((OrderViewModel)ViewData["order"]);
+
+            <div>
+                <input asp-for="OrderId" class="form-control" type="hidden" value="@orderViewModel.Id">
+            </div>
+            <div>
+                <input asp-for="Fee" class="form-control" type="hidden" value="@orderViewModel.Amount">
+            </div>
+        }
+    }
+
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-primary" />
+    </div>
+</form>

@@ -1,0 +1,66 @@
+﻿
+@model UpdateSpecNameViewModel
+
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">Ürün Özelliği Adı Güncelle</h3>
+    </div>
+    <!-- /.card-header -->
+    <!-- form start -->
+    <form form asp-controller="SpecName" asp-action="Update" method="post">
+        <input type="hidden" asp-for="Id" />
+        <div class="card-body">
+            <div class="form-group">
+                <label>Ürün Özelliği</label>
+                <input asp-for="Name" class="form-control" type="text" placeholder="SpecName  *">
+            </div>
+            <div class="form-group">
+                <label></label>
+                <input asp-for="Slug" class="form-control" type="text" placeholder="Slug *">
+            </div>
+            <div class="form-grSlugoup">
+                <label>Ürün Özellik Sırası</label>
+                <input asp-for="ShortOrder" class="form-control" type="text" placeholder="ShortOrder *">
+            </div>
+            <div class="form-group">
+                <label>Ürün Id</label>
+                <select asp-for="SpecGroupId" asp-items="@ViewBag.SpecNames" class="form-control">
+                    <option>Please select Products..</option>
+                </select>
+            </div>
+        </div>
+        <!-- /.card-body -->
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <a asp-controller="SpecName" asp-action="Index" class="btn btn-danger">Çıkış</a>
+        </div>
+    </form>
+
+    @if (TempData["Message"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            @TempData["Message"]
+        </div>
+    }
+</div>
+
+
+
+@section scripts{
+    <!-- bs-custom-file-input -->
+    <script src="~/admin/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+
+    <script>
+        $(function () {
+            bsCustomFileInput.init();
+        });
+    </script>
+}
+
+

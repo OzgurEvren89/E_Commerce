@@ -1,0 +1,70 @@
+﻿@model List<SpecToProductViewModel>
+
+
+
+<div class="content-body">
+    <div class="row justify-content-between align-items-center mb-10">
+        <div class="col-12 col-lg-auto mb-20">
+            <div class="page-heading">
+                <h3 class="title">Ürün Özellikleri</h3>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 mb-30">
+            <div class="box">
+                <div class="box-head">
+                    @if (Model.FirstOrDefault() != null && Model.FirstOrDefault().ProductId != null)
+                    {
+                        <a asp-controller="ProductDetail" asp-action="ProductDetails" asp-route-id="@Model.FirstOrDefault().ProductId" class="btn btn-danger">ÜRÜNE GERİ DÖN</a>
+                    }
+                    else
+                    {
+                        <a asp-controller="Home" asp-action="Index" class="btn btn-danger"> GERİ DÖN</a>
+                    }
+                </div>
+                <br />
+                <div class="box-body">
+                    <table class="table table-bordered data-table data-table-default">
+                        <thead>
+                            <tr>
+                                <th>Ürün Özelliği</th>
+                                <th>Özellik Değeri</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model != null)
+                            {
+                                foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @item.SpecName.Name
+                                        </td>
+                                        <td>
+                                            @item.SpecValue.Name
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td>Bu ürüne ait bir özellik mevcut değldir</td>
+                                </tr>
+                                <tr>
+                                    <td>Bu ürüne ait bir özellik değeri mevcut değldir</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<br />
+
+
+

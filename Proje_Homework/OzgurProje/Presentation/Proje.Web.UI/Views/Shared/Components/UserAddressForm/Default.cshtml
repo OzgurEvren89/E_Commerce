@@ -1,0 +1,68 @@
+﻿@model CreateMemberAddressViewModel
+
+
+<form id="frmMember" asp-action="InsertUserAddress" asp-controller="Order" method="post" data-ajax="true"  data-ajax-method="Post" data-ajax-success="OnSuccess" novalidate="novalidate">
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div>
+        <label>Üye Adı</label>
+        <input asp-for="UserName" class="form-control" type="text" placeholder="Adınız *">
+    </div>
+    
+    <div>
+        <label>Üye Soyadı</label>
+        <input asp-for="UserSurName" class="form-control" type="text" placeholder="Soyadınız *">
+    </div>
+   
+    <div>
+        <label>Vergi Numarası (Kurumsal Müşteri)</label>
+        <input asp-for="TaxNumber" class="form-control" type="text" placeholder="Vergi Numaranız *">
+    </div>
+  
+    <div>
+        <label>Vergi Dairesi (Kurumsal Müşteri)</label>
+        <input asp-for="TaxOffice" class="form-control" type="text" placeholder="Vergi Dairesi *">
+    </div>
+   
+    <div>
+        <label>Telefon Numaranız</label>
+        <input asp-for="UserPhoneNumber" class="form-control" type="text" placeholder="Tel No *">
+    </div>
+    <div>
+        <label>TCKN</label>
+        <input asp-for="TCLD" class="form-control" type="text" placeholder="TC Kimlik Numaranız *">
+    </div>
+    
+    <div>
+        <label>Adres Adınız</label>
+        <input asp-for="AddressName" class="form-control" type="text" placeholder="Adresinize, daha sonra kolaylıkla seçebilmek için isim veriniz *">
+    </div>
+   
+    <div class="form-group">
+        <label>Adres Tipi</label>
+        <select asp-for="AddressTypeId" asp-items="@ViewBag.AddressType" class="form-control">
+            <option>Adres Tipi Seçiniz..</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>İl</label>
+        <select asp-for="CityCode" asp-items="@ViewBag.Cities" class="form-control">
+            <option>Şehir Seçiniz..</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>İlçe</label>
+        <select asp-for="CountyCode" asp-items="@ViewBag.Counties" class="form-control">
+            <option>İlçe Seçiniz..</option>
+        </select>
+    </div>
+
+    <div>
+        <label>Açık Adresinizi Yzınız</label>
+        <input asp-for="Address" class="form-control" type="text" placeholder="Adresinz *">
+
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-primary" />
+    </div>
+</form>

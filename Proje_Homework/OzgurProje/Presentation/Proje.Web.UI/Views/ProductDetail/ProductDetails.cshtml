@@ -1,0 +1,152 @@
+﻿
+@model ProductViewModel
+
+@{
+    ViewData["Title"] = "ProductDetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="product-details">
+    <!--product-details-->
+    <div class="container">
+        <div class="row" style="margin-top:50px;">
+            <div id="fotograflar" class="col-lg-12 col-md-6">
+                @if (Model.ProductImages != null)
+                {
+                    @foreach (var item in Model.ProductImages)
+                    {
+                        <img id="smallImage" src="@item.FileName" />
+                    }
+                }
+            </div>
+        </div>
+        <div id="acilanBox" style="margin-top: 50px; ">
+
+        </div>
+    </div>
+</div><!--/product-details-->
+<div class="product-information">
+    <div class="col-sm-7">
+        <!--/product-information-->
+        @*<img src="~/blog/images/product-details/new.jpg" class="newarrival" alt="" />*@
+        <h1>@Model.ProductName</h1>
+
+        @*<img src="~/blog/images/product-details/rating.png" alt="" />*@
+        <span>
+
+            <span> @Model.Price1 TL.</span> @*burada fiyatlardan ilkini getirmesi gerekiyor.*@
+            <label>Miktar:</label>
+            <label>@Model.StockAmount</label>
+            <button href="#" type="button" class="btn btn-fefault cart">
+                <i class="fa fa-shopping-cart"></i>
+                Add to cart
+            </button>
+
+        </span>
+        <p>
+            <b>Satın Alma Durumu:</b>
+            @if (Model.Status == Status.Active || Model.Status == Status.Updated && Model.StockAmount > 0)
+            {
+                <strong> Ürün Stokta Mevcut</strong>
+            }
+            else
+            {
+                <strong> Ürün Mevcut Değil</strong>
+            }
+        </p>
+        <p><b>Ürünün Durumu:</b> Sıfır</p>
+        <p><b>Ürün Markası:</b> <strong>@Model.Brand</strong> </p>
+        <a href=""><img src="~/blog/images/product-details/share.png" class="share img-responsive" alt="" /></a>
+        <hr />
+        <a id="btnCreateComment" asp-controller="ProductComment" asp-action="Insert" asp-route-id="@Model.Id">Yorum Yap</a>
+        <hr />
+        <a id="urunVaryant" data-toggle="tab" style="cursor: pointer;" data-id="@Model.Id">Diğer Seçenekler</a>
+
+    </div><!--/product-information-->
+</div>
+
+<div class="category-tab shop-details-tab">
+    <!--category-tab-->
+    <div class="col-sm-12">
+        <ul class="nav nav-tabs">
+            <li><a id="urunDetay" data-toggle="tab" style="cursor: pointer;" data-id="@Model.Id">Özellikler</a></li>
+            <li><a id="urunDetayi" data-toggle="tab" style="cursor: pointer;" data-id="@Model.Id">Ürün Açıklaması</a></li>
+            <li><a id="urunYorum" data-toggle="tab" style="cursor: pointer;" data-id="@Model.Id">Ürün Yorumları</a></li>
+            <li><a id="urunTaksit" data-toggle="tab" style="cursor: pointer;" data-id="@Model.Id">Taksit Seçenekleri</a></li>
+            @*<li class="active"><a href="#reviews" data-toggle="tab">Görüntülenme (5)</a></li>*@
+            <li><a asp-controller="Home" asp-action="Index" data-toggle="tab">Çıkış</a></li>
+        </ul>
+    </div>
+</div>
+<div id="urunOzellikModalContent"></div>
+
+
+
+
+
+
+
+
+
+
+@section scripts{
+
+    <script src="~/blog/js/jquery.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("div#fotograflar img").mouseenter(function () {
+                //console.log($(this).attr('src'));
+                $("#acilanBox").css("display", "none");
+                var resimYolu = $(this).attr('src');
+                $("#acilanBox").html('<img id="bigImage" src="' + resimYolu + '" />').fadeIn("slow");
+            });
+        });
+    </script>
+
+
+    <script type="text/javascript">
+
+
+        $(document).on("click", "#urunDetay", function () {
+            $("#urunOzellikModalContent").empty();
+            var id = $(this).data("id")
+            $("#urunOzellikModalContent").load("/ProductDetail/ProductPropertiesViewComponent?id=" + id);
+        });
+
+        $(document).on("click", "#urunTaksit", function () {
+            $("#urunOzellikModalContent").empty();
+            var id = $(this).data("id")
+            $("#urunOzellikModalContent").load("/ProductDetail/InstallmentRateViewComponent?id=" + id);
+        });
+
+        $(document).on("click", "#urunDetayi", function () {
+            $("#urunOzellikModalContent").empty();
+            var id = $(this).data("id")
+            $("#urunOzellikModalContent").load("/ProductDetail/ProductDetailViewComponent?id=" + id);
+        });
+
+        $(document).on("click", "#urunYorum", function () {
+            $("#urunOzellikModalContent").empty();
+            var id = $(this).data("id")
+            $("#urunOzellikModalContent").load("/ProductDetail/ProductCommentViewComponent?id=" + id);
+        });
+
+        $(document).on("click", "#urunVaryant", function () {
+            $("#urunOzellikModalContent").empty();
+            var id = $(this).data("id")
+            $("#urunOzellikModalContent").load("/ProductDetail/OptionToProductViewComponent?id=" + id);
+        });
+
+    </script>
+
+
+
+}
+
+
+
+
+
+
+

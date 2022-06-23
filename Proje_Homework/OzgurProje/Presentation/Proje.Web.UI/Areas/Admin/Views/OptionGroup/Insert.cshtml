@@ -1,0 +1,59 @@
+﻿
+@model CreateOptionGroupViewModel
+
+@{
+    ViewData["Title"] = "Insert";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">Varyant Grubu Ekle</h3>
+    </div>
+    <!-- /.card-header -->
+    <!-- form start -->
+    <form form asp-controller="OptionGroup" asp-action="Insert" method="post">
+        <div class="card-body">
+            <div class="form-group">
+                <label>Varyant Grubu Adı</label>
+                <input asp-for="Title" class="form-control" type="text" placeholder="OptionGroup Title *">
+            </div>
+            <div class="form-group">
+                <label>Açıklama</label>
+                <input asp-for="Slug" class="form-control" type="text" placeholder="Slug *">
+            </div>
+            <div class="form-group">
+                <label>Sıralama</label>
+                <input asp-for="SortOrder" class="form-control" type="text" placeholder="SortOrder *">
+            </div>
+        </div>
+        <!-- /.card-body -->
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <a asp-controller="OptionGroup" asp-action="Index" class="btn btn-danger">Çıkış</a>
+        </div>
+    </form>
+
+    @if (TempData["Message"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            @TempData["Message"]
+        </div>
+    }
+</div>
+
+
+
+@section scripts{
+    <!-- bs-custom-file-input -->
+    <script src="~/admin/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+
+    <script>
+        $(function () {
+            bsCustomFileInput.init();
+        });
+    </script>
+}
+
+

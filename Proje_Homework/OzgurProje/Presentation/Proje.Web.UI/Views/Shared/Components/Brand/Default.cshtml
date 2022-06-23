@@ -1,0 +1,9 @@
+﻿
+@model List<BrandViewModel>
+
+
+@foreach (BrandViewModel item in Model)
+{
+        <li><a href="#"> <span class="pull-right">(ürün sayısı)</span>@item.BrandName</a></li>
+}
+

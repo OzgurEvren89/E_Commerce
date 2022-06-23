@@ -1,0 +1,66 @@
+﻿@model List<ProductDetailViewModel>
+
+<div class="content-body">
+    <div class="row justify-content-between align-items-center mb-10">
+        <div class="col-12 col-lg-auto mb-20">
+            <div class="page-heading">
+                <h3 class="title">Ürün Detayı</h3>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 mb-30">
+            <div class="box">
+                <div class="box-head">
+                    <a asp-controller="Home" asp-action="Index" class="btn btn-danger"> Kapat</a>
+                </div>
+                 <br />
+                <div class="box-body">
+                    <table class="table table-bordered data-table data-table-default">
+                        <thead>
+
+                        </thead>
+                        <tbody>
+                            @if (Model != null)
+                            {
+                                foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <th>@item.Title</th>
+                                    </tr>
+                                    <tr>
+                                        
+                                        <td>
+                                            <p>@item.Details</p>
+                                        </td>
+
+                                    </tr>
+                                }
+                            }
+                            else
+                            {
+
+                                <tr>
+                                    <td>Ürün Detayı Girilmemiştir.</td>
+                                </tr>
+
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    @if (TempData["Message"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            @TempData["Message"]
+        </div>
+    }
+</div>
+<br />
+
+
+
+
+

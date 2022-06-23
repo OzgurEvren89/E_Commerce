@@ -1,0 +1,50 @@
+﻿
+@model CreateProductCommentViewModel
+
+@{
+    ViewData["Title"] = "Insert";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form asp-controller="ProductComment" asp-action="Insert" method="post">
+    <div class="shopper-informations">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="shopper-info">
+
+                    @{
+                        if (ViewData["product"] != null)
+                        {
+                            ProductViewModel productViewModel = ((ProductViewModel)ViewData["product"]);
+
+                            <div>
+                                <input asp-for="ProductId" class="form-control" type="hidden" value="@productViewModel.Id">
+                            </div>
+                            <h3 style="color:orangered">@productViewModel.ProductName</h3>
+                        }
+                    }
+
+                    <div class="order-message">
+
+                        <textarea asp-for="Content" placeholder="Yorum Giriniz" rows="16"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button asp-controller="ProductDetail" asp-action="ProductDetails" class="btn btn-danger">Yorumdan Çık</button>
+
+    <div class="card-footer">
+        <button type="submit" class="btn btn-primary">Yorumu Gönder</button>
+    </div>
+</form>
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @TempData["Message"]
+    </div>
+}
+
+
+
+

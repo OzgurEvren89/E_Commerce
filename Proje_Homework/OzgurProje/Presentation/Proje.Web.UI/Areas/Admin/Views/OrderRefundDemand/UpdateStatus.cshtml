@@ -1,0 +1,57 @@
+﻿
+@model UpdateOrderRefundDemandViewModel
+
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">İptal Sınucu Durumunu düzenle</h3>
+    </div>
+ 
+    <form form asp-controller="OrderRefundDemand" asp-action="UpdateStatus" method="post">
+        <input type="hidden" asp-for="Id" />
+        <input type="hidden" asp-for="Reason" />
+        <input type="hidden" asp-for="Details" />
+        <input type="hidden" asp-for="Fee" />
+        <input type="hidden" asp-for="OrderId" />
+        <input type="hidden" asp-for="UserId" />
+        <div class="card-body">
+            <div class="form-group">
+                <label>İptal Sonucu Statusünu Değiştirin</label>
+                <select asp-for="ResultStatus" asp-items="@ViewBag.DemandStatus" class="form-control">
+                    <option>Sonuç Statusü Seçiniz..</option>
+                </select>
+            </div>
+        </div>
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <a asp-controller="OrderRefundDemand" asp-action="Index" class="btn btn-danger">Çıkış</a>
+        </div>
+    </form>
+
+    @if (TempData["Message"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            @TempData["Message"]
+        </div>
+    }
+</div>
+
+
+
+@section scripts{
+    <!-- bs-custom-file-input -->
+    <script src="~/admin/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+
+    <script>
+        $(function () {
+            bsCustomFileInput.init();
+        });
+    </script>
+}
+
+

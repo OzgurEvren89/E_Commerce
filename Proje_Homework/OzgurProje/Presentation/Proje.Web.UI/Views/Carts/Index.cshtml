@@ -1,0 +1,140 @@
+﻿
+
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+
+<h2>Sepet</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Ürün Adı</th>
+            <th>Fiyat</th>
+            <th>Stok Miktarı</th>
+            <th>Adet</th>
+            <th>Toplam Fiyat</th>
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="col-lg-6 col-lg-offset-6">
+            <label>Ödemeniz gereken Toplam Tutar: <span id="totalAmount"></span></label>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+          /*  Hazır fonksiyonlarımdan ilk olarak $.Cart.List(); bu fonksiyon gecikmeli çalışsın diyorum sayfa yüklendiğinde. bu fonksiyonda JSON model ile çalışacak javascript olduğundan*/
+
+            setTimeout(function myfunction() {
+                $.Cart.List();
+            },250)
+
+            /* aşağıdaki $.Cart.List(); teki function (data) daki data nesnem List actionum çalıştığında dönen jsonresult içerisindeki listem. sepetim yani cookiem.  */
+
+            $.Cart = {
+                List: function () {
+                    $.getJSON("@Url.Action("List","Carts")", function (data) {
+                        $("table tbody tr").remove();
+                        var count = Object.keys(data).length;
+                        var totalAmount = 0;
+                        if (count > 0) {
+                            $.each(data, function (key, item) {
+                                var value;
+                                if (item != null && item.Product != null && item.Product.Price1 != null && item.Product.Price1 && item.Product.Price1 > 0)
+                                {
+                                    value = item.Product.Price1;
+                                }
+                                else
+                                {
+                                    value = 0 ;
+                                }
+
+                                var totalvalue;
+                                if (item != null && item.Product != null && item.Product.Price1 != null && item.Product.Price1 > 0)
+                                {
+                                    totalvalue = item.Product.Price1 * item.Quantity;
+                                }
+                                else
+                                {
+                                    totalvalue = 0;
+                                }
+
+                                
+                                $("table tbody").append(
+                                    '<tr>' +
+                                    '<td>' + item.Product.ProductName + '</td>' +
+                                    '<td>' + value+ ' TL.' +'</td>' +
+                                    '<td>' + item.Product.StockAmount + '</td>' +
+                                    '<td>' + item.Quantity + '</td>' +
+                                    '<td>' + totalvalue + ' TL.' + '</td>' +
+                                    '<td>' +
+                                    '<img onclick="$.Cart.Increase(\'' + item.Product.Id+ '\')" width="40" height="40" src="/blog/Images/cart/Add1.png" data-toggle="tooltip" data-placement="right" title="Arttır" />' +
+                                    '<img onclick="$.Cart.Decrease(\'' + item.Product.Id + '\')" width="40" height="40" src="/blog/Images/cart/Remove1.png" data-toggle="tooltip" data-placement="right" title="Azalt" />' +
+                                    '<img onclick="$.Cart.Remove(\'' + item.Product.Id + '\')" width="40" height="40" src="/blog/Images/cart/Remove.png" data-toggle="tooltip" data-placement="right" title="Sil" />' +
+                                    '</td>' +
+                                    '</tr>');
+                                totalAmount += totalvalue;
+                            });
+
+                        }
+                        else {
+                            $("table tbody").append(
+                                '<tr>' +
+                                    '<td colspan="6" style="text-align:center;">' +
+                                        '<img src="/blog/Images/cart/emptycart.jpg" />' +
+                                    '</td>' +
+                                '</tr>'
+                            );
+                        }
+                        $("#totalAmount").html(totalAmount.toFixed(2) + ' TL.');
+                        $('[data-toggle="tooltip"]').tooltip();
+                    });
+                },
+               
+                Increase: function (strId) {
+                    $.ajax({
+                        type: "GET",
+                        dataType: "JSON",
+                        url: "/Carts/IncreaseCart/?strId=" + strId,
+                        success: function (result) {
+                            $.Cart.List();
+                        }
+                    });
+                },
+                Decrease: function (strId) {
+                     $.ajax({
+                        type: "GET",
+                        dataType: "JSON",
+                         url: "/Carts/DecreaseCart/?strId=" + strId,
+                        success: function (result) {
+                            $.Cart.List();
+                        }
+                    });
+                },
+                Remove: function (strId) {
+                     $.ajax({
+                        type: "GET",
+                        dataType: "JSON",
+                        url: "/Carts/RemoveCart/?strId=" + strId,
+                        success: function (result) {
+                            $.Cart.List();
+                        }
+                    });
+                }
+            };
+        });
+    </script>
+}

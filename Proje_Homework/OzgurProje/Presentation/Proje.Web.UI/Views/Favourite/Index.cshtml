@@ -1,0 +1,101 @@
+﻿@model List<FavouritedProductViewModel>
+
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content-body">
+    <div class="row justify-content-between align-items-center mb-10">
+        <div class="col-12 col-lg-auto mb-20">
+            <div class="page-heading">
+                <h3 class="title">Favorileriniz</h3>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 mb-30">
+            <div class="box">
+
+                <div class="box-head">
+                    <a asp-controller="Home" asp-action="Index" class="btn btn-danger"> Kapat</a>
+                </div>
+                <br />
+                <div class="box-body">
+                    <table class="table table-bordered data-table data-table-default">
+                        <thead>
+                            <tr>
+                                <th>Ürün Resmi</th>
+                                <th>Ürün Adı</th>
+                                <th>Ürün Fiyatı</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model != null)
+                            {
+                                foreach (var item in Model)
+                                {
+                                    <tr>
+                                        @if (item.Product != null && item.Product.ProductImages.Count > 0)
+                                        {
+                                            <td>
+                                                <img id="smallImage" src="@item.Product.ProductImages.FirstOrDefault().FileName" />
+                                            </td>
+                                        }
+                                        else
+                                        {
+                                            <td>
+                                                <p>Ürün Resmi Mevcut Değidir!</p>
+                                            </td>
+                                        }
+
+                                        @if (item.Product != null && item.Product.ProductName != null)
+                                        {
+                                            <td>
+                                                <p>@item.Product.ProductName</p>
+                                            </td>
+                                        }
+                                        else
+                                        {
+                                            <td>
+                                                <p>Ürün Adı Mevcut Değidir!</p>
+                                            </td>
+                                        }
+
+                                        <td>
+                                            <p>@item.Product.Price1 </p>
+                                        </td>
+
+                                        <td>
+                                            <a asp-controller="Favourite" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger"> Sil </a>
+
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td>Henüz Favori Ürününüz Mevcut Değildir.</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    @if (TempData["Message"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            @TempData["Message"]
+        </div>
+    }
+</div>
+<br />
+
+
+
+
+

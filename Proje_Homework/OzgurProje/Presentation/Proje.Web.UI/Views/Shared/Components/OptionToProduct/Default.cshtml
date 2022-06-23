@@ -1,0 +1,92 @@
+﻿@model List<OptionToProductViewModel>
+
+
+
+<div class="content-body">
+    <div class="row justify-content-between align-items-center mb-10">
+        <div class="col-12 col-lg-auto mb-20">
+            <div class="page-heading">
+                <h3 class="title">Ürün Seçenekleri</h3>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 mb-30">
+            <div class="box">
+                <div class="box-head">
+                    @if (Model.FirstOrDefault() != null && Model.FirstOrDefault().ParentProductId != null)
+                    {
+                        <a asp-controller="ProductDetail" asp-action="ProductDetails" asp-route-id="@Model.FirstOrDefault().ParentProductId" class="btn btn-danger">ÜRÜNE GERİ DÖN</a>
+                    }
+                    else
+                    {
+                        <a asp-controller="Home" asp-action="Index" class="btn btn-danger"> KAPAT </a>
+                    }
+                </div>
+                <br />
+                <div class="box-body">
+                    <table class="table table-bordered data-table data-table-default">
+                        <thead>
+                            <tr>
+                                @{ List<OptionGroupViewModel> optionGroup = new List<OptionGroupViewModel>();
+                                    if (Model != null)
+                                    {
+                                        foreach (var item in Model)
+                                        {
+                                            OptionGroupViewModel group = new OptionGroupViewModel();
+
+                                            if (optionGroup.Count() == 0)
+                                            {
+                                                optionGroup.Add(item.OptionGroup);
+                                                <th>@item.OptionGroup.Title</th>
+                                            }
+                                            else
+                                            {
+                                                group = optionGroup.Where(x => x.Id == item.OptionGroupId).FirstOrDefault();
+                                                if (group == null)
+                                                {
+                                                    optionGroup.Add(item.OptionGroup);
+                                                    <th>@item.OptionGroup.Title</th>
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                @if (Model != null)
+                                {
+                                    foreach (var group in optionGroup)
+                                    {
+                                        List<OptionToProductViewModel> optionToProductViewModels = Model.Where(x => x.OptionGroupId == group.Id).ToList();
+                                        if (optionToProductViewModels != null)
+                                        {
+                                            <td>
+                                                @foreach (var item in optionToProductViewModels)
+                                                {
+                                                    <a asp-controller="ProductDetail" asp-action="ProductDetails" asp-route-id="@item.ProductId" class="btn btn-primary">@item.Option.Title</a>
+                                                }
+
+                                            </td>
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    <td>Bu ürüne ait bir özellik mevcut değldir</td>
+                                }
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<br />
+
+
+

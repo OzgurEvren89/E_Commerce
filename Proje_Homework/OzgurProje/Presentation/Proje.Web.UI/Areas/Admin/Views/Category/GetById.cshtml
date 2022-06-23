@@ -1,0 +1,72 @@
+﻿@model CategoryViewModel
+
+
+@{
+    ViewData["Category Details"] = "GetById";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-body">
+    <div class="row justify-content-between align-items-center mb-10">
+        <div class="col-12 col-lg-auto mb-20">
+            <div class="page-heading">
+                <h3 class="title">Blog<span>/ Category</span></h3>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 mb-30">
+            <div class="box">
+                <div class="box-head">
+                    <a asp-controller="Category" asp-action="Index" class="btn btn-primary">Çıkış</a>
+                </div>
+                <div class="box-body">
+                    <table class="table table-bordered data-table data-table-default">
+                        <thead>
+                            <tr>
+                                <th>Table row</th>
+                                <th>Description</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    Category Id
+                                </td>
+                                <td>
+                                    @Model.Id
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Category Name
+                                </td>
+                                <td>
+                                    @Model.CategoryName
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Description
+                                </td>
+                                <td>
+                                    @Model.Description
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Created Date
+                                </td>
+                                <td>
+                                    @Model.CreatedDate
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

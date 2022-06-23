@@ -1,0 +1,44 @@
+﻿
+@model List<CartItemViewModel>
+
+@{ 
+    decimal lastAmount = 0;
+}
+  
+<tbody>
+
+    @foreach (var item in Model)
+    {
+
+        <tr>
+            <td class="cart_product">
+                <a href=""><img src=@item.Product.ProductImages.FirstOrDefault() alt=""></a>
+            </td>
+            <td class="cart_description">
+                <h4><a href="">@item.Product.ProductName</a></h4>
+                <p>Web ID: 1089772</p>
+            </td>
+            <td class="cart_price">
+                <p>@item.Product.Price1 TL.</p>
+            </td>
+            <td class="cart_quantity">
+                <div class="cart_quantity_button">
+                    <input class="cart_quantity_input" type="text" name="quantity" value=@item.Quantity autocomplete="off" size="2">
+                </div>
+            </td>
+            @*<td class="cart_total">
+                <p class="cart_total_price">@{item.Product.ProductPrices.FirstOrDefault().Value *Convert.ToDecimal(item.Quantity)}  TL.</p>
+            </td>*@
+
+        </tr>
+        <tr>
+            @*@{lastAmount += (item.Product.ProductPrices.FirstOrDefault().Value * Convert.ToDecimal(item.Quantity))}*@
+        </tr>
+    }
+</tbody>
+<td class="cart_total">
+    <p class="cart_total_price">@lastAmount  TL.</p>
+</td>
+<div>
+    <a asp-controller="Carts" asp-action="List" class="btn">Sepete Geri Dön</a>
+</div>

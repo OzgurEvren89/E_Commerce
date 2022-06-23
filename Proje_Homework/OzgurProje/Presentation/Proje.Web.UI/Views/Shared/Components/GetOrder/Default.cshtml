@@ -1,0 +1,83 @@
+﻿@model List<OrderViewModel>
+
+
+
+<div class="content-body">
+    <div class="row justify-content-between align-items-center mb-10">
+        <div class="col-12 col-lg-auto mb-20">
+            <div class="page-heading">
+                <h3 class="title">Siparişlerim</h3>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 mb-30">
+            <div class="box">
+                <div class="box-head">
+
+                </div>
+                <br />
+                <div class="box-body">
+                    <table class="table table-bordered data-table data-table-default">
+                        <thead>
+                            <tr>
+                                <th>Siparişteki Ürünler</th>
+                                <th>Toplam Fiyat</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model != null)
+                            {
+
+                                foreach (var item in Model)
+                                {
+
+                                    <tr>
+                                        <td>
+                                            @if (item.OrderItems != null)
+                                            {
+                                                foreach (var orderItem in item.OrderItems)
+                                                {
+                                                    string deger = orderItem.ProductName + "/";
+                                                    <p>@deger</p>
+                                                }
+                                            }
+                                        </td>
+                                        <td>
+                                            @item.Amount TL.
+                                        </td>
+                                        <td>
+                                            <input type="button" class="btn btn-danger" onClick="deleteOrder('@item.Id')" value="İptal et"/>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<br />
+<script type="text/javascript">
+    function deleteOrder(id) {
+        debugger;
+        $("#memberProfileModalContent").load("/Profile/OrderRefundDemandViewComponent?id=" + id);
+        $('#mdlMemberInformationForm').modal('toggle');
+    }
+
+</script>
+
+
+

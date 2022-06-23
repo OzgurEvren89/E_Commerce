@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.22" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.22" />
+    <PackageReference Include="Microsoft.Extensions.Http.Polly" Version="3.1.22" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
+    <PackageReference Include="Refit.HttpClientFactory" Version="6.3.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Proje.Common\Proje.Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\blog\images\product_images\Beyaz_Kazak\" />
+    <Folder Include="wwwroot\blog\images\product_images\Kirmizi_Kazak\" />
+    <Folder Include="wwwroot\blog\images\product_images\Kot_Pantolon\" />
+    <Folder Include="wwwroot\blog\images\product_images\Kumas_Pantolon\" />
+    <Folder Include="wwwroot\blog\images\product_images\Beyaz_Gomlek\" />
+    <Folder Include="wwwroot\blog\images\product_images\Mavi_Gomlek\" />
+    <Folder Include="wwwroot\blog\images\product_images\Kirmizi_Gomlek\" />
+    <Folder Include="wwwroot\blog\images\product_images\Siyah_Gomlek\" />
+    <Folder Include="wwwroot\uploads\" />
+  </ItemGroup>
+
+</Project>
